@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cafetería Aroma Dulce</title>
+<script src="https://kit.fontawesome.com/2757fdb248.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffefe8;
+    }
+    header {
+      background-color: #6f3508;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 70px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    nav a {
+      color: white !important;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 20px;
+    }
+    .producto {
+      background-color: #d4ae95;
+      border-radius: 12px;
+      width: 250px;
+      text-align: center;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .producto:hover {
+      transform: scale(1.05);
+    }
+    .producto img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .producto h3 {
+      margin: 10px 0;
+      color: #5c3a28;
+    }
+    .producto a {
+      background-color: #693520;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+    .producto a:hover {
+      background-color: #8a5a46;
+    }
+
+.producto img {
+  width: 220px;
+  height: 190px;
+  object-fit: cover; /* recorta y ajusta sin deformar */
+}
+
+
+ .producto button {
+      background-color: #8a492d;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    .producto button:hover {
+      background-color: #8a5a46;
+    }
+
+
+
+
+ /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-contenido {
+      background-color: #fffaf5;
+      margin: 10% auto;
+      padding: 20px;
+      border: 2px solid #a9745f;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 10px;
+      position: relative;
+    }
+    .cerrar {
+      color: #a9745f;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+
+    footer {
+      background-color: #7d3d0b;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="https://i.pinimg.com/736x/a7/b8/19/a7b819a336f31b815b4e1ead0f5be9cb.jpg" "width: 350px; height: 300px;" alt="Logo">
+    <h2>Cafetería Aroma Dulce</h2>
+  </div>
+
+
+<div class="iconos">
+        <i class="fa-solid fa-phone-volume fa-beat fa-2xl" style="color: white;"></i>
+        <span>Teléfono</span>
+
+
+      </div>
+
+<p>9959-1339</p>
+
+
+      <div class="iconos">
+        <i class="fa-solid fa-envelope fa-beat fa-2xl" style="color: white;"></i>
+        <span>Correo</span>
+      </div>
+<p>AromasCoffi@gmail.com</p>
+
+      <div class="iconos">
+        <i class="fa-solid fa-location-dot fa-beat fa-2xl" style="color: white;"></i>
+        <span>Dirección</span>
+      </div>
+<p>La valencia, Rio Lindo Cortes<p/>
+
+
+
+  <nav>
+    <a href="C:\Users\jenni\OneDrive\Documents\UCENM\Computacion 1\computacion 2\Tarea idex\cafeteria .html">Inicio</a>
+    <a href="C:\Users\jenni\OneDrive\Documents\UCENM\Computacion 1\computacion 2\Tarea idex\Menu de cafeteria.html">Menú</a>
+  </nav>
+</header>
+
+<div class="contenedor">
+  <div class="producto">
+    <img src="https://i.pinimg.com/736x/37/17/d6/3717d6b0d945263d405df7c1eafcb066.jpg" alt="Capuccino">
+    <h3>Capuccino Cremoso</h3>
+    <button onclick="abrirModal('modal1')">Ver más</button>
+  </div>
+
+  <div class="producto">
+    <img src="https://i.pinimg.com/736x/4e/f0/31/4ef031186eb0275a4f9635b7553031f2.jpg" alt="Latte">
+    <h3>Latte Vainilla</h3>
+    <button onclick="abrirModal('modal2')">Ver más</button>
+  </div>
+
+  <div class="producto">
+    <img src="https://i.pinimg.com/736x/82/e0/39/82e039d8b9be9921e1580a9b487eeca3.jpg" alt="Brownie">
+    <h3>Brownie de Chocolate</h3>
+    <button onclick="abrirModal('modal3')">Ver más</button>
+  </div>
+
+  <div class="producto">
+    <img src="https://i.pinimg.com/736x/d7/57/16/d757163573ca51238732bf95def2740d.jpg" alt="Croissant">
+    <h3>Croissant de Mantequilla</h3>
+    <button onclick="abrirModal('modal4')">Ver más</button>
+  </div>
+
+  <div class="producto">
+    <img src="https://i.pinimg.com/736x/c6/aa/b5/c6aab568635bf2fe2b631012ee9b4c7c.jpg" alt="Mocha">
+    <h3>Mocha con Leche</h3>
+    <button onclick="abrirModal('modal5')">Ver más</button>
+  </div>
+  
+</div>
+
+
+<div class="contenedor">
+  <div class="producto">
+    <img src="https://i.pinimg.com/736x/b5/b1/4a/b5b14a303cb3e3c5316c8ed986fbecc7.jpg" "width: 250px; height: 100px;" alt="Capuccino">
+    <h3>Crepas dulces</h3>
+   
+<button onclick="abrirModal('modal6')">Ver más</button>
+  </div>
+
+
+  <div class="producto">
+    <img src="https://i.pinimg.com/736x/0a/26/a7/0a26a7ce7a5a9ee3b740c01493f0bc8d.jpg" "width: 250px; height: 100px;" alt="Latte">
+    <h3>Churros de canela y azúcar</h3>
+    <button onclick="abrirModal('modal7')">Ver más</button>
+  </div>
+
+
+  <div class="producto">
+    <img src="https://i.pinimg.com/736x/53/75/d7/5375d7558e179e8db9c8ff21572aa8d6.jpg" "width: 250px; height: 100px;" alt="Brownie">
+    <h3>Cupcakes</h3>
+    <button onclick="abrirModal('modal8')">Ver más</button>
+  </div>
+
+  <div class="producto">
+    <img src="https://i.pinimg.com/736x/0e/c2/89/0ec289492947872976c5c52215280faa.jpg" "width: 250px; height: 100px;" alt="Croissant">
+    <h3>Tiramisú</h3>
+    <button onclick="abrirModal('modal9')">Ver más</button>
+  </div>
+
+  <div class="producto">
+    <img src="https://i.pinimg.com/736x/8b/31/14/8b31146389926e141ef86a9e2251ba7e.jpg" "width: 250px; height: 100px;" alt="Mocha">
+    <h3>Granola y yogurt</h3>
+    <button onclick="abrirModal('modal10')">Ver más</button>
+  </div>
+  
+</div>
+
+
+
+<!-- Modales -->
+<div id="modal1" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal('modal1')">&times;</span>
+    <h2>Capuccino Cremoso</h2>
+    <p>Espresso con leche espumada y un toque de cacao. Cremoso y reconfortante, ideal para cualquier hora.</p>
+  </div>
+</div>
+
+<div id="modal2" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal('modal2')">&times;</span>
+    <h2>Latte Vainilla</h2>
+    <p>Suave café con leche infusionado con esencia natural de vainilla. Delicado y delicioso.</p>
+  </div>
+</div>
+
+<div id="modal3" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal('modal3')">&times;</span>
+    <h2>Brownie de Chocolate</h2>
+    <p>Brownie casero con chispas de chocolate oscuro. Textura húmeda y sabor intenso.</p>
+  </div>
+</div>
+
+<div id="modal4" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal('modal4')">&times;</span>
+    <h2>Croissant de Mantequilla</h2>
+    <p>Pan hojaldrado recién horneado, dorado y crujiente. Perfecto para acompañar tu café.</p>
+  </div>
+</div>
+
+<div id="modal5" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal('modal5')">&times;</span>
+    <h2>Mocha con Leche</h2>
+    <p>Café espresso con chocolate y leche vaporizada. Un clásico para los amantes del dulce.</p>
+  </div>
+</div>
+
+<div id="modal6" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal('modal6')">&times;</span>
+    <h2>Crepas dulces</h2>
+    <p>Delgadas y suaves crepas rellenas de frutas frescas, nutella o dulce de leche, cubiertas con un toque de crema batida y sirope a elección. ¡Un clásico irresistible para acompañar tu café!.</p>
+  </div>
+</div>
+
+
+
+<div id="modal7" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal('modal7')">&times;</span>
+    <h2>Churros de Canela</h2>
+    <p>Crujientes por fuera, suaves por dentro. Espolvoreados con azúcar y canela, servidos con una porción de chocolate caliente o dulce de leche para sumergirlos. ¡Un toque tradicional con sabor casero!.</p>
+  </div>
+</div>
+
+<div id="modal8" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal('modal8')">&times;</span>
+    <h2>Cupcakes</h2>
+    <p>Esponjosos pastelitos individuales con cobertura de crema suave y decoraciones artesanales. Disponibles en sabores como vainilla, chocolate y red velvet. Perfectos para una pausa dulce.</p>
+  </div>
+</div>
+
+<div id="modal9" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal('modal9')">&times;</span>
+    <h2>Tiramisu</h2>
+    <p>Postre italiano en capas de bizcocho empapado en café, crema de mascarpone y cacao. Una combinación elegante y equilibrada entre el café y la dulzura, ideal para los amantes del buen sabor.</p>
+  </div>
+</div>
+
+<div id="modal10" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal('modal10')">&times;</span>
+    <h2>Granola con Yogur</h2>
+    <p>Mezcla crujiente de granola casera, acompañada de yogur natural y frutas frescas de temporada. Ligero, saludable y delicioso, ideal para comenzar el día o como merienda.</p>
+  </div>
+</div>
+
+
+
+
+
+
+<footer>
+  © 2025 Cafetería Aroma Dulce. Todos los derechos reservados.
+</footer>
+
+
+
+<script>
+  function abrirModal(id) {
+    document.getElementById(id).style.display = "block";
+  }
+
+  function cerrarModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Cierra el modal si se hace clic fuera del contenido
+  window.onclick = function(event) {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach(modal => {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
+</script>
+
+
+</body>
+</html>
